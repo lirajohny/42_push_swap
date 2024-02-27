@@ -1,14 +1,5 @@
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
-{
-	if ((c >= 48 && c <= 57) || (c == '-' || c == '+'))
-	{
-		return (1);
-	}
-	return (0);
-}
-
 int	has_duplicate(int num, char **argv, int i)
 {
 	i++;
@@ -23,18 +14,20 @@ int	has_duplicate(int num, char **argv, int i)
 
 static int	has_num(char *num)
 {
-	int	i;
+	int		i;
+	char	c;
 
 	i = 0;
 	if (num[0] == '-')
 		i++;
 	while (num[i])
 	{
-		if (!ft_isdigit(num[i]))
-			return (0);
+		c = num[i];
+		if (!(c >= '0' && c <= '9') || (c == '-' || c == '+'))
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 static void	check(long tmp, char **args, int i)
@@ -44,7 +37,7 @@ static void	check(long tmp, char **args, int i)
 		write(1, "Error\n", 6);
 		exit(-1);
 	}
-	if (!has_num(args[i]))
+	if (has_num(args[i]) == 1)
 	{
 		write(1, "Error\n", 6);
 		exit(-1);
@@ -62,10 +55,14 @@ void	check_args(char **av, int ac)
 	char	**args;
 	int		x;
 
-	if (ac == 2)
-		exit(-1);
-	x = 1;
 	args = av;
+	if (ac <= 2)
+	{
+		if (has_num(args[1]) == 1 || !args[1])
+			write(1, "Error\n", 6);
+		exit(-1);
+	}
+	x = 1;
 	while (args[x])
 	{
 		tmp = ft_atol(args[x]);

@@ -39,8 +39,6 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (ac < 2)
-		return (-1);
 	check_args(av, ac);
 	a = (t_stack *)malloc(sizeof(t_stack));
 	b = NULL;

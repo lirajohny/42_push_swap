@@ -36,7 +36,7 @@ void	sort_3(t_stack *stack_a);
 void	radix_sort(t_stack *a, t_stack *b);
 int		rra(t_stack *stack_a);
 int	has_duplicate(int num, char **argv, int i);
-int	ft_isdigit(int c);
+//int	ft_isdigit(int c);
 void	check_args(char **av, int ac);
 void	small_to_top(t_stack *a, t_stack *b);
 void	sort_4(t_stack *stack_a, t_stack *stack_b);
