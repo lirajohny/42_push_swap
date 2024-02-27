@@ -39,44 +39,18 @@ void	sort_3(t_stack *stack_a)
 
 void	sort_4(t_stack *stack_a, t_stack *stack_b)
 {
-	int	nbr;
-
+	small_to_top(stack_a, stack_b);
 	pb(stack_b, stack_a);
 	sort_3(stack_a);
-	nbr = stack_b->head->simple;
 	pa(stack_a, stack_b);
-	if (nbr == 1)
-		sa(stack_a);
-	else if (nbr == 3)
-		ra(stack_a);
-	else if (nbr == 2)
-		multi(stack_a);
-	else
-		return ;
+
 }
 
 void	sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int	nbr;
-
+	small_to_top(stack_a, stack_b);
 	pb(stack_b, stack_a);
 	sort_4(stack_a, stack_b);
-	nbr = stack_b->head->simple;
 	pa(stack_a, stack_b);
-	if (nbr == 1)
-		sa(stack_a);
-	else if (nbr == 4)
-		ra(stack_a);
-	else if (nbr == 3)
-		multi(stack_a);
-	else if (nbr == 2)
-	{
-		rra(stack_a);
-		sa(stack_a);
-		ra(stack_a);
-		ra(stack_a);
-	}
-	else
-		return ;
 }
 

@@ -49,13 +49,14 @@ int	main(int ac, char **av)
 	if (a->size > 3)
 		b = (t_stack *)malloc(sizeof(t_stack));
 	sort_stack(a, b);
-
+	/*
 	t_node *tmp = a->head;
 	while (tmp)
 	{
 		printf(" stack[%i] = %li | original pos = %i\n", tmp->simple, tmp->value, tmp->index);
 		tmp = tmp->next;
 	}
+	*/
 	free_stacks(a, b);
 	return (0);
 }

@@ -49,8 +49,11 @@ int	sa(t_stack *stack_a)
 	if (!node1 || !node2)
 		return (-1);
 	tmp->value = node1->value;
+	tmp->simple = node1->simple;
 	node1->value = node2->value;
+	node1->simple = node2->simple;
 	node2->value = tmp->value;
+	node2->simple = tmp->simple;
 	free(tmp);
 	write(1, "sa\n", 3);
 	return (0);
@@ -76,4 +79,11 @@ int	rra(t_stack *stack_a)
 	stack_a->tail = node_penultimate;
 	write(1, "rra\n", 4);
 	return (0);
+}
+
+void	rra3(t_stack *stack_a)
+{
+	rra(stack_a);
+	rra(stack_a);
+	rra(stack_a);
 }

@@ -35,41 +35,26 @@ void	radix_sort(t_stack *a, t_stack *b)
 			pa(a, b);
 	}
 }
-/*
-void	check_little(int i, t_node *node, t_node *node_tail, t_stack *stack_a)
+
+void	small_to_top(t_stack *a, t_stack *b)
 {
-	if (i == node->value)
+	t_node	*check;
+	
+	check = a->head;
+	if (check->simple == 0 || (b && ((b->head->simple == 0) && check->simple == 1)))
 		return ;
-	else if (i == node->next->value)
-		sa(stack_a);
-	else if (i == node_tail->value)
-		rra(stack_a);
-	else if (i == find_midle(stack_a))
-		rra3(stack_a);
+	else if (check->next->simple == 0 || (b && (b->head->simple == 0) && check->next->simple == 1))
+		sa(a);
+	else if (a->tail->simple == 0 || (b && (b->head->simple == 0) && a->tail->simple == 1))
+		rra(a);
+	else if (check->next->next->simple == 0 || (b &&(b->head->simple == 0) && check->next->next->simple == 1))
+		rra3(a);
 	else
 	{
-		rra(stack_a);
-		rra(stack_a);
+		printf("A: simple is %i -> nummber is %li\n", check->simple, check->value);
+		printf("B : simple is %i -> nummber is %li\n", b->head->simple, b->head->value);
+		rra(a);
+		rra(a);
 	}
 }
 
-void	little(t_stack *stack_a)
-{
-	t_node	*node;
-	t_node	*node_tail;
-	int		i;
-
-	node = stack_a->head;
-	node_tail = stack_a->tail;
-	i = node->value;
-	while (node->next)
-	{
-		if (node->next->value < i)
-			i = node->next->value;
-		node = node->next;
-	}
-	node = stack_a->head;
-	check_little(i, node, node_tail, stack_a);
-}
-
-*/
