@@ -41,20 +41,19 @@ void	small_to_top(t_stack *a, t_stack *b)
 	t_node	*check;
 	
 	check = a->head;
-	if (check->simple == 0 || (b && ((b->head->simple == 0) && check->simple == 1)))
+	//printf("A: simple is %i -> nummber is %li\n", check->simple, check->value);
+	if (check->simple == 0 || (b->size == 1 && check->simple == 1))
 		return ;
-	else if (check->next->simple == 0 || (b && (b->head->simple == 0) && check->next->simple == 1))
+	else if (check->next->simple == 0 || (b->size == 1 && check->next->simple == 1))
 		sa(a);
-	else if (a->tail->simple == 0 || (b && (b->head->simple == 0) && a->tail->simple == 1))
+	else if (a->tail->simple == 0 || (b->size == 1 && a->tail->simple == 1))
 		rra(a);
-	else if (check->next->next->simple == 0 || (b &&(b->head->simple == 0) && check->next->next->simple == 1))
-		rra3(a);
 	else
 	{
-		printf("A: simple is %i -> nummber is %li\n", check->simple, check->value);
-		printf("B : simple is %i -> nummber is %li\n", b->head->simple, b->head->value);
-		rra(a);
-		rra(a);
+		ra(a);
+		ra(a);
 	}
+	//else if (check->next->next->simple == 0)
+	//	rra3(a);
 }
 

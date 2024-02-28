@@ -13,6 +13,7 @@ int	pb(t_stack *stack_b, t_stack *stack_a)
 	stack_b->size++;
 	if (stack_b->size == 1)
 		stack_b->tail = stack_b->head;
+	//printf("B: i got %li which position should be %i\n", stack_b->head->value, stack_b->head->simple);
 	write(1, "pb\n", 3);
 	return (0);
 }
