@@ -41,7 +41,6 @@ void	small_to_top(t_stack *a, t_stack *b)
 	t_node	*check;
 	
 	check = a->head;
-	//printf("A: simple is %i -> nummber is %li\n", check->simple, check->value);
 	if (check->simple == 0 || (b->size == 1 && check->simple == 1))
 		return ;
 	else if (check->next->simple == 0 || (b->size == 1 && check->next->simple == 1))
@@ -53,7 +52,5 @@ void	small_to_top(t_stack *a, t_stack *b)
 		ra(a);
 		ra(a);
 	}
-	//else if (check->next->next->simple == 0)
-	//	rra3(a);
 }
 

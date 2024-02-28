@@ -40,26 +40,3 @@ void	put_in_order(t_stack *stack_a)
 	}
 }
 
-/*
-int	find_midle(t_stack *stack_a)
-{
-	t_node	*slow;
-	t_node	*fast;
-	int		i;
-
-	i = 0;
-	slow = stack_a->head;
-	fast = stack_a->head->next;
-	while (fast)
-	{
-		fast = fast->next;
-		if (fast)
-		{
-			slow = slow->next;
-			fast = fast->next;
-		}
-	}
-	i = slow->value;
-	return (i);
-}
-*/
