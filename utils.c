@@ -34,7 +34,6 @@ void	init_stack(t_stack *stack_a, char **av, int ac)
 	put_in_order(stack_a);
 }
 
-
 long	ft_atol(const char *nptr)
 {
 	long	res;

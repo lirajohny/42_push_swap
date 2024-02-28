@@ -1,4 +1,3 @@
-
 #include "push_swap.h"
 
 int	is_sorted(t_stack *list)
@@ -17,8 +16,8 @@ int	is_sorted(t_stack *list)
 
 void	put_in_order(t_stack *stack_a)
 {
-	t_node *next_one;
-	t_node *smaller;
+	t_node	*next_one;
+	t_node	*smaller;
 	int		n;
 
 	n = 0;
@@ -31,7 +30,7 @@ void	put_in_order(t_stack *stack_a)
 			if (smaller->simple != -1)
 				smaller = next_one;
 			if (next_one->value < smaller->value && next_one->simple == -1)
-					smaller = next_one;
+				smaller = next_one;
 			next_one = next_one->next;
 		}
 		if (smaller->simple == -1)
@@ -39,4 +38,3 @@ void	put_in_order(t_stack *stack_a)
 		next_one = stack_a->head;
 	}
 }
-

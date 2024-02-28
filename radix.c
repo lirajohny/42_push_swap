@@ -39,11 +39,12 @@ void	radix_sort(t_stack *a, t_stack *b)
 void	small_to_top(t_stack *a, t_stack *b)
 {
 	t_node	*check;
-	
+
 	check = a->head;
 	if (check->simple == 0 || (b->size == 1 && check->simple == 1))
 		return ;
-	else if (check->next->simple == 0 || (b->size == 1 && check->next->simple == 1))
+	else if (check->next->simple == 0
+		|| (b->size == 1 && check->next->simple == 1))
 		sa(a);
 	else if (a->tail->simple == 0 || (b->size == 1 && a->tail->simple == 1))
 		rra(a);
@@ -53,4 +54,3 @@ void	small_to_top(t_stack *a, t_stack *b)
 		ra(a);
 	}
 }
-

@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 void	sort_small(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size;
@@ -46,7 +47,6 @@ void	sort_4(t_stack *stack_a, t_stack *stack_b)
 		sort_3(stack_a);
 		pa(stack_a, stack_b);
 	}
-
 }
 
 void	sort_5(t_stack *stack_a, t_stack *stack_b)
@@ -59,4 +59,3 @@ void	sort_5(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 	}
 }
-
