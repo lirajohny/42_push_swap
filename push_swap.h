@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jlira <jlira@student.42.rio>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 11:50:14 by jlira             #+#    #+#             */
-/*   Updated: 2024/03/25 11:50:16 by jlira            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -56,5 +44,5 @@ int		sa(t_stack *stack_a);
 int		ra(t_stack *stack_a);
 int		pa(t_stack *stack_a, t_stack *stack_b);
 int		pb(t_stack *stack_b, t_stack *stack_a);
-
+char	**ft_split(char const *s, char c, char *name, int *ac);
 #endif

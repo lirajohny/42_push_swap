@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jlira <jlira@student.42.rio>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 11:50:36 by jlira             #+#    #+#             */
-/*   Updated: 2024/03/25 11:50:57 by jlira            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	has_duplicate(int num, char **argv, int i)
@@ -44,19 +32,19 @@ static int	has_num(char *num)
 
 static void	check(long tmp, char **args, int i)
 {
+	if (!args[1] || tmp < -2147483648 || tmp > 2147483647)
+	{
+		write(2, "Error\n", 6);
+		exit(-1);
+	}
 	if (has_duplicate(tmp, args, i))
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(-1);
 	}
 	if (has_num(args[i]) == 1)
 	{
-		write(1, "Error\n", 6);
-		exit(-1);
-	}
-	if (tmp < -2147483648 || tmp > 2147483647)
-	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(-1);
 	}
 }
@@ -68,17 +56,13 @@ void	check_args(char **av, int ac)
 	int		x;
 
 	args = av;
-	if (ac <= 2)
-	{
-		if (has_num(args[1]) == 1 || !args[1])
-			write(1, "Error\n", 6);
-		exit(-1);
-	}
 	x = 1;
 	while (args[x])
 	{
 		tmp = ft_atol(args[x]);
 		check(tmp, args, x);
+		if (ac == 2)
+			exit (-1);
 		x++;
 	}
 	if (ac == 2)
