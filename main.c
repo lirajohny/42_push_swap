@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jlira <jlira@student.42.rj>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/26 08:21:51 by jlira             #+#    #+#             */
+/*   Updated: 2024/04/26 08:42:49 by jlira            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
@@ -38,11 +50,15 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		to_free;
 
 	if (ac == 1)
 		return (-1);
 	if (ac == 2)
+	{
+		to_free = ac;
 		av = ft_split(av[1], ' ', av[0], &ac);
+	}
 	check_args(av, ac);
 	a = (t_stack *)malloc(sizeof(t_stack));
 	b = NULL;
@@ -52,5 +68,7 @@ int	main(int ac, char **av)
 		b = (t_stack *)malloc(sizeof(t_stack));
 	sort_stack(a, b);
 	free_stacks(a, b);
+	if (to_free == 2)
+		ft_free((void **)av);
 	return (0);
 }

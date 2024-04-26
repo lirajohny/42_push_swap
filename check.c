@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jlira <jlira@student.42.rj>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/26 08:22:07 by jlira             #+#    #+#             */
+/*   Updated: 2024/04/26 08:43:46 by jlira            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	has_duplicate(int num, char **argv, int i)
@@ -62,7 +74,10 @@ void	check_args(char **av, int ac)
 		tmp = ft_atol(args[x]);
 		check(tmp, args, x);
 		if (ac == 2)
+		{
+			ft_free((void **)args);
 			exit (-1);
+		}
 		x++;
 	}
 	if (ac == 2)

@@ -6,7 +6,7 @@
 /*   By: jlira <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:55:09 by jlira             #+#    #+#             */
-/*   Updated: 2023/10/30 11:17:38 by jlira            ###   ########.fr       */
+/*   Updated: 2024/04/26 08:39:35 by jlira            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ char	**ft_split(char const *s, char c, char *name, int *ac)
 
 	if (!s)
 		return (NULL);
-	*ac = count_words(s, c);
-	split = (char **)malloc((sizeof(char *) * (*ac + 2)));
+	*ac = count_words(s, c) + 1;
+	split = (char **)malloc((sizeof(char *) * (*ac + 1)));
 	if (!split)
 		return (NULL);
 	i = 1;
 	split[0] = name;
 	pos = 0;
-	while (len != 0 && s[pos] != '\0' && i <= *ac)
+	while (*ac != 0 && s[pos] != '\0' && i <= *ac)
 	{
 		pos = words_copy(&split[i], s, c, pos);
 		if (pos < 0)
